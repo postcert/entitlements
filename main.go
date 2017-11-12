@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/postcert/entitlementsui/actions"
+	"github.com/postcert/entitlements/actions"
 )
 
 func main() {

@@ -1,0 +1,8 @@
+<div class="page-header">
+  <h1>Edit Entitlement</h1>
+</div>
+
+<%= form_for(entitlement, {action: entitlementPath({ entitlement_id: entitlement.ID }), method: "PUT"}) { %>
+  <%= partial("entitlements/form.html") %>
+  <a href="<%= entitlementPath({ entitlement_id: entitlement.ID }) %>" class="btn btn-warning" data-confirm="Are you sure?">Cancel</a>
+<% } %>

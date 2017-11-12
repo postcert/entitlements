@@ -2,7 +2,7 @@ package grifts
 
 import (
 	"github.com/gobuffalo/buffalo"
-	"github.com/postcert/entitlementsui/actions"
+	"github.com/postcert/entitlements/actions"
 )
 
 func init() {

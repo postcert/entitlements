@@ -1,0 +1,14 @@
+<div class="page-header">
+  <h1>EntitlementGroup#Show</h1>
+</div>
+
+  <a href="<%= entitlementGroupsPath() %>" class="btn btn-info">Back to all EntitlementGroups</a>
+  <a href="<%= editEntitlementGroupPath({ entitlement_group_id: entitlementGroup.ID })%>" class="btn btn-warning">Edit</a>
+  <a href="<%= entitlementGroupPath({ entitlement_group_id: entitlementGroup.ID })%>" data-method="DELETE" data-confirm="Are you sure?" class="btn btn-danger">Destroy</a>
+
+<p>
+    <strong>ID</strong>: <%= entitlementGroup.ID %>
+</p>
+<p>
+  <strong>Name</strong>: <%= entitlementGroup.Name %>
+</p>

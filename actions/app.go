@@ -10,7 +10,7 @@ import (
 	"github.com/gobuffalo/buffalo/middleware/csrf"
 	"github.com/gobuffalo/buffalo/middleware/i18n"
 	"github.com/gobuffalo/packr"
-	"github.com/postcert/entitlementsui/models"
+	"github.com/postcert/entitlements/models"
 )
 
 // ENV is used to help switch settings based on where the
@@ -26,7 +26,7 @@ func App() *buffalo.App {
 	if app == nil {
 		app = buffalo.New(buffalo.Options{
 			Env:         ENV,
-			SessionName: "_entitlementsui_session",
+			SessionName: "_entitlements_session",
 		})
 		// Automatically redirect to SSL
 		app.Use(ssl.ForceSSL(secure.Options{
@@ -57,6 +57,10 @@ func App() *buffalo.App {
 		app.GET("/", HomeHandler)
 
 		app.ServeFiles("/assets", assetsBox)
+		app.Resource("/entitlements", EntitlementsResource{&buffalo.BaseResource{}})
+		app.Resource("/entitlement_groups", EntitlementGroupsResource{&buffalo.BaseResource{}})
+		app.Resource("/grants", GrantsResource{&buffalo.BaseResource{}})
+		app.Resource("/grants", GrantsResource{&buffalo.BaseResource{}})
 	}
 
 	return app

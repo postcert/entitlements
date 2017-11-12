@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h1>Grants</h1>
+</div>
+<ul class="list-unstyled list-inline">
+  <li><a href="<%= newGrantsPath() %>" class="btn btn-primary">Create New Grant</a></li>
+</ul>
+
+<table class="table table-striped">
+  <thead>
+  <th>Name</th>
+    <th>EntitlementGroupID</th>
+    <th>EntitlementID</th>
+    <th>Allow</th>
+    <th>&nbsp;</th>
+  </thead>
+  <tbody>
+    <%= for (grant) in grants { %>
+      <tr>
+      <td><%= grant.Name %></td>
+        <td><a href="/entitlement_groups/<%= grant.EntitlementGroupID%>"><%= grant.EntitlementGroupID %></td>
+        <td><a href="/entitlements/<%= grant.EntitlementID %>"><%= grant.EntitlementID %></td>
+        <td><%= grant.Allow %></td>
+        <td>
+          <div class="pull-right">
+            <a href="<%= grantPath({ grant_id: grant.ID }) %>" class="btn btn-info">View</a>
+            <a href="<%= editGrantPath({ grant_id: grant.ID }) %>" class="btn btn-warning">Edit</a>
+            <a href="<%= grantPath({ grant_id: grant.ID }) %>" data-method="DELETE" data-confirm="Are you sure?" class="btn btn-danger">Destroy</a>
+          </div>
+        </td>
+      </tr>
+    <% } %>
+  </tbody>
+</table>
+
+<div class="text-center">
+  <%= paginator(pagination) %>
+</div>

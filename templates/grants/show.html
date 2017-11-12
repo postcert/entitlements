@@ -1,0 +1,23 @@
+<div class="page-header">
+  <h1>Grant#Show</h1>
+</div>
+
+  <a href="<%= grantsPath() %>" class="btn btn-info">Back to all Grants</a>
+  <a href="<%= editGrantPath({ grant_id: grant.ID })%>" class="btn btn-warning">Edit</a>
+  <a href="<%= grantPath({ grant_id: grant.ID })%>" data-method="DELETE" data-confirm="Are you sure?" class="btn btn-danger">Destroy</a>
+
+<p>
+    <strong>ID</strong>: <%= grant.ID %>
+</p>
+<p>
+  <strong>Name</strong>: <%= grant.Name %>
+</p>
+<p>
+    <strong>GroupID</strong>: <a href="/entitlement_groups/<%= grant.EntitlementGroupID%>"><%= grant.EntitlementGroupID %></a>
+</p>
+<p>
+    <strong>EntitlementID</strong>: <a href="/entitlements/<%= grant.EntitlementID %>"> <%= grant.EntitlementID %></a>
+</p>
+<p>
+  <strong>Allow</strong>: <%= grant.Allow %>
+</p>

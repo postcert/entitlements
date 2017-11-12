@@ -1,0 +1,6 @@
+- id: "entitlement_group.created.success"
+  translation: "EntitlementGroup was successfully created."
+- id: "entitlement_group.updated.success"
+  translation: "EntitlementGroup was successfully updated."
+- id: "entitlement_group.destroyed.success"
+  translation: "EntitlementGroup was successfully destroyed."

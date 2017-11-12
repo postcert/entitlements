@@ -1,0 +1,8 @@
+<div class="page-header">
+  <h1>New EntitlementGroup</h1>
+</div>
+
+<%= form_for(entitlementGroup, {action: entitlementGroupsPath(), method: "POST"}) { %>
+  <%= partial("entitlement_groups/form.html") %>
+  <a href="<%= entitlementGroupsPath() %>" class="btn btn-warning" data-confirm="Are you sure?">Cancel</a>
+<% } %>

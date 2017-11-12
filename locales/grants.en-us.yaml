@@ -1,0 +1,6 @@
+- id: "grant.created.success"
+  translation: "Grant was successfully created."
+- id: "grant.updated.success"
+  translation: "Grant was successfully updated."
+- id: "grant.destroyed.success"
+  translation: "Grant was successfully destroyed."

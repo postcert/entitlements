@@ -1,0 +1,8 @@
+<div class="page-header">
+  <h1>Edit Grant</h1>
+</div>
+
+<%= form_for(grant, {action: grantPath({ grant_id: grant.ID }), method: "PUT"}) { %>
+  <%= partial("grants/form.html") %>
+  <a href="<%= grantPath({ grant_id: grant.ID }) %>" class="btn btn-warning" data-confirm="Are you sure?">Cancel</a>
+<% } %>
