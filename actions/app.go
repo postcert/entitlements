@@ -60,7 +60,6 @@ func App() *buffalo.App {
 		app.Resource("/entitlements", EntitlementsResource{&buffalo.BaseResource{}})
 		app.Resource("/entitlement_groups", EntitlementGroupsResource{&buffalo.BaseResource{}})
 		app.Resource("/grants", GrantsResource{&buffalo.BaseResource{}})
-		app.Resource("/grants", GrantsResource{&buffalo.BaseResource{}})
 	}
 
 	return app

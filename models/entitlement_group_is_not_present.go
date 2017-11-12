@@ -7,6 +7,7 @@ import (
 	"github.com/markbates/validate"
 	"github.com/markbates/validate/validators"
 	"github.com/satori/go.uuid"
+	"github.com/sirupsen/logrus"
 )
 
 type EntitlementGroupIsNotPresent struct {
@@ -17,10 +18,12 @@ type EntitlementGroupIsNotPresent struct {
 
 func (v *EntitlementGroupIsNotPresent) IsValid(errors *validate.Errors) {
 	// Allocate an empty Entitlement
-	entitlement := &Entitlement{}
+	entitlementGroup := &EntitlementGroup{}
 
 	// Find Entitlement
-	if err := v.Tx.Find(entitlement, v.ID); err == nil {
+	if err := v.Tx.Find(entitlementGroup, v.ID); err == nil {
+		logrus.Info("EGINP: Found entitlement_group: ", v.ID)
 		errors.Add(validators.GenerateKey(v.Name), fmt.Sprintf("%s must exist.", v.Name))
 	}
+	logrus.Info("EGINP: Did not find entitlement_group: ", v.ID)
 }

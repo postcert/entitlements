@@ -8,6 +8,7 @@ import (
 	"github.com/markbates/validate"
 	"github.com/markbates/validate/validators"
 	"github.com/satori/go.uuid"
+	"sync"
 )
 
 type Grant struct {
@@ -38,8 +39,12 @@ func (g Grants) String() string {
 // Validate gets run every time you call a "pop.Validate*" (pop.ValidateAndSave, pop.ValidateAndCreate, pop.ValidateAndUpdate) method.
 // This method is not required and may be deleted.
 func (g *Grant) Validate(tx *pop.Connection) (*validate.Errors, error) {
+	// PQ fails on concurrent use
+	var txMutex = &sync.Mutex{}
 	return validate.Validate(
 		&validators.StringIsPresent{Field: g.Name, Name: "Name"},
+		&EntitlementIsPresent{ID: g.EntitlementID, Name: "Entitlement ID", Tx: tx, TxMutex: txMutex},
+		&EntitlementGroupIsPresent{ID: g.EntitlementGroupID, Name: "Entitlement Group ID", Tx: tx, TxMutex: txMutex},
 	), nil
 }
 
