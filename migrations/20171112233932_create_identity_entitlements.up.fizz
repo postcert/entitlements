@@ -1,0 +1,6 @@
+create_table("identity_entitlements", func(t) {
+	t.Column("id", "uuid", {"primary": true})
+	t.Column("identity", "string", {})
+	t.Column("entitlement_id", "uuid", {})
+	t.Column("allow", "bool", {})
+})

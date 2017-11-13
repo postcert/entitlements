@@ -1,0 +1,8 @@
+<div class="page-header">
+  <h1>Edit IdentityGroup</h1>
+</div>
+
+<%= form_for(identityGroup, {action: identityGroupPath({ identity_group_id: identityGroup.ID }), method: "PUT"}) { %>
+  <%= partial("identity_groups/form.html") %>
+  <a href="<%= identityGroupPath({ identity_group_id: identityGroup.ID }) %>" class="btn btn-warning" data-confirm="Are you sure?">Cancel</a>
+<% } %>

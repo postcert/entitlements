@@ -1,0 +1,6 @@
+- id: "identity_entitlement.created.success"
+  translation: "IdentityEntitlement was successfully created."
+- id: "identity_entitlement.updated.success"
+  translation: "IdentityEntitlement was successfully updated."
+- id: "identity_entitlement.destroyed.success"
+  translation: "IdentityEntitlement was successfully destroyed."

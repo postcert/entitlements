@@ -17,8 +17,8 @@
     <%= for (grant) in grants { %>
       <tr>
       <td><%= grant.Name %></td>
-        <td><a href="/entitlement_groups/<%= grant.EntitlementGroupID%>"><%= grant.EntitlementGroupID %></td>
-        <td><a href="/entitlements/<%= grant.EntitlementID %>"><%= grant.EntitlementID %></td>
+          <td><a href="/entitlement_groups/<%= grant.EntitlementGroupID%>"><%= grant.EntitlementGroupID %></a></td>
+          <td><a href="/entitlements/<%= grant.EntitlementID %>"><%= grant.EntitlementID %></a></td>
         <td><%= grant.Allow %></td>
         <td>
           <div class="pull-right">

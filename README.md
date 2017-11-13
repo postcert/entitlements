@@ -1,6 +1,12 @@
-# Welcome to Buffalo!
+# Entitlements
 
-Thank you for choosing Buffalo for your web development needs.
+Entitlements is a simple authorization application that takes the idea of an "identity" and attaches "groups" and "grants" to them which are used for authorization decisions.
+```text
+usages:
+✔️ - User1 has the entitlement CanBreathe granted by membership in the Breathers groups
+✔️ - User2 has the entitlement CanBreathe directly granted by a grant
+✖️ - User3 has Breathers group membership, but has a direct grant with `allow: false` this overrides any positive allowances
+```
 
 ## Database Setup
 

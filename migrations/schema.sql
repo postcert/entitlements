@@ -81,6 +81,37 @@ CREATE TABLE grants (
 ALTER TABLE grants OWNER TO postgres;
 
 --
+-- Name: identity_entitlements; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE identity_entitlements (
+    id uuid NOT NULL,
+    identity character varying(255) NOT NULL,
+    entitlement_id uuid NOT NULL,
+    allow boolean NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE identity_entitlements OWNER TO postgres;
+
+--
+-- Name: identity_groups; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE identity_groups (
+    id uuid NOT NULL,
+    identity character varying(255) NOT NULL,
+    entitlement_group_id uuid NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE identity_groups OWNER TO postgres;
+
+--
 -- Name: schema_migration; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -113,6 +144,22 @@ ALTER TABLE ONLY entitlements
 
 ALTER TABLE ONLY grants
     ADD CONSTRAINT grants_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: identity_entitlements identity_entitlements_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY identity_entitlements
+    ADD CONSTRAINT identity_entitlements_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: identity_groups identity_groups_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY identity_groups
+    ADD CONSTRAINT identity_groups_pkey PRIMARY KEY (id);
 
 
 --

@@ -1,0 +1,35 @@
+<div class="page-header">
+  <h1>IdentityEntitlements</h1>
+</div>
+<ul class="list-unstyled list-inline">
+  <li><a href="<%= newIdentityEntitlementsPath() %>" class="btn btn-primary">Create New IdentityEntitlement</a></li>
+</ul>
+
+<table class="table table-striped">
+  <thead>
+  <th>Identity</th>
+    <th>EntitlementID</th>
+    <th>Allow</th>
+    <th>&nbsp;</th>
+  </thead>
+  <tbody>
+    <%= for (identityEntitlement) in identityEntitlements { %>
+      <tr>
+      <td><%= identityEntitlement.Identity %></td>
+        <td><a href="/entitlements/<%= identityEntitlement.EntitlementID %>"><%= identityEntitlement.EntitlementID %></a></td>
+        <td><%= identityEntitlement.Allow %></td>
+        <td>
+          <div class="pull-right">
+            <a href="<%= identityEntitlementPath({ identity_entitlement_id: identityEntitlement.ID }) %>" class="btn btn-info">View</a>
+            <a href="<%= editIdentityEntitlementPath({ identity_entitlement_id: identityEntitlement.ID }) %>" class="btn btn-warning">Edit</a>
+            <a href="<%= identityEntitlementPath({ identity_entitlement_id: identityEntitlement.ID }) %>" data-method="DELETE" data-confirm="Are you sure?" class="btn btn-danger">Destroy</a>
+          </div>
+        </td>
+      </tr>
+    <% } %>
+  </tbody>
+</table>
+
+<div class="text-center">
+  <%= paginator(pagination) %>
+</div>

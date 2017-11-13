@@ -1,0 +1,6 @@
+- id: "identity_group.created.success"
+  translation: "IdentityGroup was successfully created."
+- id: "identity_group.updated.success"
+  translation: "IdentityGroup was successfully updated."
+- id: "identity_group.destroyed.success"
+  translation: "IdentityGroup was successfully destroyed."

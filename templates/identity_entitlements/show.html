@@ -1,0 +1,19 @@
+<div class="page-header">
+  <h1>IdentityEntitlement#Show</h1>
+</div>
+
+<ul class="list-unstyled list-inline">
+  <li><a href="<%= identityEntitlementsPath() %>" class="btn btn-info">Back to all IdentityEntitlements</a></li>
+  <li><a href="<%= editIdentityEntitlementPath({ identity_entitlement_id: identityEntitlement.ID })%>" class="btn btn-warning">Edit</a></li>
+  <li><a href="<%= identityEntitlementPath({ identity_entitlement_id: identityEntitlement.ID })%>" data-method="DELETE" data-confirm="Are you sure?" class="btn btn-danger">Destroy</a>
+</ul>
+
+<p>
+  <strong>Identity</strong>: <%= identityEntitlement.Identity %>
+</p>
+<p>
+  <strong>EntitlementID</strong>: <a href="/entitlements/<%= identityEntitlement.EntitlementID %>"> <%= identityEntitlement.EntitlementID %></a>
+</p>
+<p>
+  <strong>Allow</strong>: <%= identityEntitlement.Allow %>
+</p>
